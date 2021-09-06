@@ -1,9 +1,8 @@
 export const createStore = (updater) => {
-    let state = "초기값";
+    let state
 
-    function doUpdate(data) {
+    function dispatch(data) {
         state = updater(state, data);
-        console.log("update!")
     }
 
     function getState() {
@@ -11,7 +10,7 @@ export const createStore = (updater) => {
     }
 
     return {
-        doUpdate,
+        dispatch,
         getState
     }
 }
